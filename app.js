@@ -1,10 +1,17 @@
 const startBtn = document.querySelector('#start')
+const timeList = document.querySelector('#time-list')
 const screens = document.querySelectorAll('.screen')
 
 startBtn.addEventListener('click', (event) => {
 	event.preventDefault()
 	screens[0].classList.add('up')
 })
+
+timeList.addEventListener('click', (event) => {
+	event.preventDefault()
+	screens[1].classList.add('up')
+})
+
 
 const words = [
 	['exist', 'существовать'],
@@ -29,7 +36,7 @@ createWord()
 
 document.querySelector('#form').addEventListener('submit', (event) => {
 	const input = document.querySelector('input')
-	const btn = document.querySelector('button')
+	const btn = document.querySelector('#check-btn')
 	event.preventDefault()
 
 	if (counter === words.length) {
@@ -62,4 +69,3 @@ const checkWord = (word) => {
 		correct.style.color = 'red'
 	}
 }
-
