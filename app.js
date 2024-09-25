@@ -1,3 +1,5 @@
+import { words } from "./scripts/word-base.js"
+
 const startBtn = document.querySelector('#start')
 const timeList = document.querySelector('#time-list')
 const screens = document.querySelectorAll('.screen')
@@ -12,12 +14,6 @@ timeList.addEventListener('click', (event) => {
 	screens[1].classList.add('up')
 })
 
-
-const words = [
-	['exist', 'существовать'],
-	['degree', 'степень'],
-	['flea', 'блоха']
-]
 
 let counter = 0
 let count = 0
