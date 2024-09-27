@@ -1,45 +1,39 @@
 import { words } from "./scripts/word-base.js"
+import { shuffle } from "./scripts/word-base.js"
+import { getRandomItems } from "./scripts/word-base.js"
 
 const startBtn = document.querySelector('#start')
 const timeList = document.querySelector('#time-list')
 const screens = document.querySelectorAll('.screen')
-
-startBtn.addEventListener('click', (event) => {
-	event.preventDefault()
-	screens[0].classList.add('up')
-})
-
-timeList.addEventListener('click', (event) => {
-	event.preventDefault()
-	screens[1].classList.add('up')
-})
+const form = document.querySelector('#form')
+const input = document.querySelector('input')
+const btn = document.querySelector('#check-btn')
 
 
+
+let amount = 0
 let counter = 0
 let count = 0
-
-const createWord = () => {
-	const wrap = document.querySelector('#words', '.correct')
-	wrap.innerHTML = `
-	<i>${counter + 1}/${words.length}</i>
-	<b>${words[counter][1]}</b>
-	<h2 class="correct"></h2>`
-	
-	wrap.className = ''
-}
-
-createWord()
-
-document.querySelector('#form').addEventListener('submit', (event) => {
-	const input = document.querySelector('input')
-	const btn = document.querySelector('#check-btn')
+let shuffleWords = 0
+//first screen
+startBtn.addEventListener('click', (event) => {
 	event.preventDefault()
+	screens[0].classList.add('up') 
+})
 
-	if (counter === words.length) {
-		alert(`Колличество правильных ответов: ${count}`)
-		return
+//second screen
+timeList.addEventListener('click', (event) => {
+	event.preventDefault()
+	if (event.target.classList.contains('word-btn')) {
+		amount = parseInt(event.target.getAttribute('data-word'))
+		shuffleWords = getRandomItems(words, amount)
+		createWord()
+		screens[1].classList.add('up')
 	}
+})
 
+
+const check = () => {
 	if (btn.classList.contains('check-btn')) {
 		checkWord(input.value.toLocaleLowerCase().trim())
 		btn.textContent = 'Далее'
@@ -51,11 +45,33 @@ document.querySelector('#form').addEventListener('submit', (event) => {
 		input.value = ''
 		createWord()
 	}
+}
+
+form.addEventListener('submit', (event) => {
+	event.preventDefault()
+
+	if (counter === shuffleWords.length) {
+		alert(`Колличество правильных ответов: ${count}`)
+		return
+	}
+	check()
 })
+
+
+
+const createWord = () => {
+	const wrap = document.querySelector('#words', '.correct')
+	wrap.innerHTML = `
+	<i>${counter + 1}/${shuffleWords.length}</i>
+	<b>${shuffleWords[counter][1]}</b>
+	<h2 class="correct"></h2>`
+	wrap.className = ''
+}
+
 
 const checkWord = (word) => {
 	const correct = document.querySelector('.correct')
-	if (word === words[counter][0]) {
+	if (word === shuffleWords[counter][0]) {
 		correct.textContent = 'Правильно!'
 		correct.style.color = 'green'
 		count += 1
