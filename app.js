@@ -63,6 +63,7 @@ const createWord = () => {
 	wrap.innerHTML = `
 	<i>${counter + 1}/${shuffleWords.length}</i>
 	<b>${shuffleWords[counter][1]}</b>
+	<i class="correct-word"></i>
 	<h2 class="correct"></h2>`
 	wrap.className = ''
 }
@@ -70,6 +71,7 @@ const createWord = () => {
 
 const checkWord = (word) => {
 	const correct = document.querySelector('.correct')
+	const correctWord = document.querySelector('.correct-word')
 	if (word === shuffleWords[counter][0]) {
 		correct.textContent = 'Правильно!'
 		correct.style.color = 'green'
@@ -77,6 +79,7 @@ const checkWord = (word) => {
 
 	} else {
 		correct.textContent = 'Неправильно!'
+		correctWord.textContent = shuffleWords[counter][0]
 		correct.style.color = 'red'
 	}
 }
