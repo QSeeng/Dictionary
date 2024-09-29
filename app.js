@@ -1,5 +1,4 @@
 import { words } from "./scripts/word-base.js"
-import { shuffle } from "./scripts/word-base.js"
 import { getRandomItems } from "./scripts/word-base.js"
 
 const startBtn = document.querySelector('#start')
@@ -18,7 +17,7 @@ let shuffleWords = 0
 //first screen
 startBtn.addEventListener('click', (event) => {
 	event.preventDefault()
-	screens[0].classList.add('up') 
+	screens[0].classList.add('up')
 })
 
 //second screen
@@ -51,7 +50,7 @@ form.addEventListener('submit', (event) => {
 	event.preventDefault()
 
 	if (counter === shuffleWords.length) {
-		alert(`Колличество правильных ответов: ${count}`)
+		alert(`Количество правильных ответов: ${count}`)
 		return
 	}
 	check()
