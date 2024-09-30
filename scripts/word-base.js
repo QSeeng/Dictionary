@@ -41,7 +41,7 @@ export let words = [
 	['determined', 'определенный'],
 	['descretion', 'усмотрение'],
 	['destiny', 'судьба (предназначение)'],
-	['disrapte', 'нарушать'],
+	['disrupt', 'нарушать'],
 	['distress', 'бедствие'],
 	['doubt', 'сомневаться'],
 	// E
