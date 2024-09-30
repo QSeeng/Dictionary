@@ -16,7 +16,7 @@ export let words = [
 	['awkward', 'неуклюжий'],
 	// B
 	['barely', 'едва'],
-	['blank', 'пустой'],
+	['blank', 'пустой (бумага)'],
 	['blow up', 'взорвать'],
 	['both', 'оба'],
 	['bother', 'беспокоить'],
@@ -29,7 +29,7 @@ export let words = [
 	['circumstances', 'обстоятельства'],
 	['commitment', 'обязательство'],
 	['convince', 'убеждать'],
-	['consider', 'считай'],
+	['consider', 'считать, рассматривать'],
 	['crew', 'экипаж'],
 	// D
 	['no will dare', 'не смей'],
@@ -45,7 +45,7 @@ export let words = [
 	['distress', 'бедствие'],
 	['doubt', 'сомневаться'],
 	// E
-	['each', 'каждый'],
+	['each', 'каждый, конкретный'],
 	['engaged', 'вовлеченный'],
 	['exist', 'существовать'],
 	// F
@@ -110,7 +110,7 @@ export let words = [
 	['prey', 'добыча'],
 	['priest', 'священник'],
 	['proper', 'правильный'],
-	['punishable', 'наказуемый'],
+	['punishment', 'наказание'],
 	['purpose', 'цель (не материальная)'],
 	// R
 	['rear', 'тыл'],
@@ -145,7 +145,7 @@ export let words = [
 	// T
 	['tantrum', 'истерика'],
 	['taunt', 'насмешка'],
-	['tighter', 'тугой'],
+	['tight', 'тугой'],
 	['take off', 'снять'],
 	['tube', 'трубка'],
 	['tumor', 'опухоль'],
