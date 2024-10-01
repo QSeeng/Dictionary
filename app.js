@@ -1,5 +1,5 @@
-import { words } from "./scripts/word-base.js"
-import { getRandomItems } from "./scripts/word-base.js"
+import { words } from "./word-base/word-base.js"
+import { getRandomItems } from "./word-base/word-base.js"
 
 const startBtn = document.querySelector('#start')
 const timeList = document.querySelector('#time-list')
