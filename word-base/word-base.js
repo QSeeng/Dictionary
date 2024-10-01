@@ -72,7 +72,7 @@ export let words = [
 	['hustle', 'суетиться'],
 	// I
 	['injury', 'травма'],
-	['innocent', 'невиный'],
+	['innocent', 'невинный'],
 	['insanity', 'безумие'],
 	['insignificant', 'незначительный'],
 	['insurance', 'страховка'],
@@ -117,7 +117,7 @@ export let words = [
 	['rescue', 'спасать'],
 	['resonable', 'разумный'],
 	['responsible', 'ответственный'],
-	['ridiculously', 'нелепо'],
+	['ridiculous', 'нелепо'],
 	['rip', 'рвать'],
 	['rot', 'гнить'],
 	['rudder', 'руль'],
