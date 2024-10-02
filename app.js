@@ -50,6 +50,7 @@ form.addEventListener('submit', (event) => {
 	event.preventDefault()
 
 	if (counter === shuffleWords.length) {
+		screens[2].classList.add('up')
 		alert(`Количество правильных ответов: ${count}`)
 		return
 	}

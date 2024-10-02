@@ -143,3 +143,8 @@ button:hover {
   border: 2px solid #16d9e3;
   color: #16d9e3;
 }
+
+/* temporary moments */
+p {
+	font-size: 30px;
+}
