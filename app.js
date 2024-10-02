@@ -2,14 +2,15 @@ import { words } from "./word-base/word-base.js"
 import { getRandomItems } from "./word-base/word-base.js"
 
 const startBtn = document.querySelector('#start')
-const timeList = document.querySelector('#time-list')
+const btnList = document.querySelector('#btn-list')
 const screens = document.querySelectorAll('.screen')
 const form = document.querySelector('#form')
 const input = document.querySelector('input')
 const btn = document.querySelector('#check-btn')
+const timeEl = document.querySelector('#time')
+const countEl = document.querySelector('#count')
 
-
-
+let time = 0
 let amount = 0
 let counter = 0
 let count = 0
@@ -21,13 +22,14 @@ startBtn.addEventListener('click', (event) => {
 })
 
 //second screen
-timeList.addEventListener('click', (event) => {
+btnList.addEventListener('click', (event) => {
 	event.preventDefault()
 	if (event.target.classList.contains('word-btn')) {
 		amount = parseInt(event.target.getAttribute('data-word'))
 		shuffleWords = getRandomItems(words, amount)
 		createWord()
 		screens[1].classList.add('up')
+		stopWatch()
 	}
 })
 
@@ -51,7 +53,7 @@ form.addEventListener('submit', (event) => {
 
 	if (counter === shuffleWords.length) {
 		screens[2].classList.add('up')
-		alert(`Количество правильных ответов: ${count}`)
+		countEl.innerHTML = `${count}`
 		return
 	}
 	check()
@@ -83,4 +85,14 @@ const checkWord = (word) => {
 		correctWord.textContent = shuffleWords[counter][0]
 		correct.style.color = 'red'
 	}
+}
+
+const stopWatch = () => {
+	let stopInterval = setInterval(() => {
+		time += 1
+		if (counter === shuffleWords.length) {
+			clearInterval(stopInterval)
+			timeEl.innerHTML = `${time} секунды`
+		}
+	 }, 1000);
 }

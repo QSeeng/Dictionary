@@ -117,7 +117,7 @@ button:hover {
   margin-top: -100vh;
 }
 
-.time-list {
+.btn-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -125,7 +125,7 @@ button:hover {
   padding: 0;
 }
 
-.time-list li {
+.btn-list li {
   margin: 10px;
 }
 
@@ -147,4 +147,5 @@ button:hover {
 /* temporary moments */
 p {
 	font-size: 30px;
+	margin: 10px;
 }
