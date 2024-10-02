@@ -32,7 +32,6 @@ export let words = [
 	['consider', 'считать, рассматривать'],
 	['crew', 'экипаж'],
 	// D
-	['no will dare', 'не смей'],
 	['decision', 'решение'],
 	['deck', 'колода'],
 	['degree', 'степень'],
@@ -165,7 +164,6 @@ export let words = [
 	// Y
 	['yelling', 'кричать'],
 ]
-
 
 //Перемешивание Фишера Йетса
  export const shuffle = (array) => {
