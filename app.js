@@ -53,7 +53,7 @@ form.addEventListener('submit', (event) => {
 
 	if (counter === shuffleWords.length) {
 		screens[2].classList.add('up')
-		countEl.innerHTML = `${count}`
+		countEl.innerHTML = `${count} из ${shuffleWords.length}`
 		return
 	}
 	check()
