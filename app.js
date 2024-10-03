@@ -92,7 +92,17 @@ const stopWatch = () => {
 		time += 1
 		if (counter === shuffleWords.length) {
 			clearInterval(stopInterval)
-			timeEl.innerHTML = `${time} секунды`
+			secConverter(time)
+			
 		}
 	 }, 1000);
+}
+
+
+const secConverter = (time) => {
+
+	const minResult = Math.floor(time / 60)
+	const secResult = time % 60
+
+	timeEl.innerHTML = `${minResult} мин ${secResult} сек`
 }
