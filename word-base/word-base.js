@@ -165,6 +165,10 @@ export let words = [
 	['yelling', 'кричать'],
 ]
 
+ export const swap = (array) => {
+	array.forEach(function(e){e.reverse();});
+}
+
 //Перемешивание Фишера Йетса
  export const shuffle = (array) => {
   let m = array.length, t, i;

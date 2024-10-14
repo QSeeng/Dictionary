@@ -1,7 +1,9 @@
 import { words } from "./word-base/word-base.js"
 import { getRandomItems } from "./word-base/word-base.js"
+import { swap } from "./word-base/word-base.js"
 
 const startBtn = document.querySelector('#start')
+const swapBtn = document.querySelector('#swap-list')
 const btnList = document.querySelector('#btn-list')
 const screens = document.querySelectorAll('.screen')
 const form = document.querySelector('#form')
@@ -15,6 +17,8 @@ let amount = 0
 let counter = 0
 let count = 0
 let shuffleWords = 0
+let rusEng = 0
+
 //first screen
 startBtn.addEventListener('click', (event) => {
 	event.preventDefault()
@@ -22,13 +26,23 @@ startBtn.addEventListener('click', (event) => {
 })
 
 //second screen
+swapBtn.addEventListener('click', (event) => {
+	event.preventDefault()
+	rusEng = parseInt(event.target.getAttribute('data-lang'))
+	if (rusEng === 1) {
+		swap(words)
+	}
+	screens[1].classList.add('up')
+})
+
+//third screen
 btnList.addEventListener('click', (event) => {
 	event.preventDefault()
 	if (event.target.classList.contains('word-btn')) {
 		amount = parseInt(event.target.getAttribute('data-word'))
 		shuffleWords = getRandomItems(words, amount)
 		createWord()
-		screens[1].classList.add('up')
+		screens[2].classList.add('up')
 		stopWatch()
 	}
 })
@@ -52,7 +66,7 @@ form.addEventListener('submit', (event) => {
 	event.preventDefault()
 
 	if (counter === shuffleWords.length) {
-		screens[2].classList.add('up')
+		screens[3].classList.add('up')
 		countEl.innerHTML = `${count} из ${shuffleWords.length}`
 		return
 	}
