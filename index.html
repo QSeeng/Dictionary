@@ -55,21 +55,25 @@
     <div class="screen">
       <h2 class="pracitce">Practice your english</h2>
       <form id="form">
-				<div id="words">
+				<div class="words"  id="words">
 					<!-- <i>1/3</i>
 					<b>Лампа</b> -->
 					<!-- <i class="correct-word"></i> -->
 					<!-- <h2 class="correct"></h2> -->
 				</div>
-				<input type="search">
+				<input type="search" id="input">
 				<button class="check-btn" id="check-btn">Проверить</button>
 			</form>
     </div>
 		<!-- screen 5 -->
 		<div class="screen">
-			<p>1. Затрачено времени - <span id="time"></span></p>
-			<p>2. Правильных ответов - <span id="count"></span></p>
+				<p>1. Затрачено времени - <span id="time"></span></p>
+				<p>2. Правильных ответов - <span id="first-stat"></span></p>
+				<p>1. Правильных ответов неправильных слов - <span id="last-stat"></span></p>
+				<p class="question">Желаете повторно пройти неправильные слова?</p>
+				<button class="wrong-btn" id="wrong-btn">Начать</button>
 		</div>
+
 		<script type="module" src="app.js"></script>
   </body>
 	<script type="text/javascript">

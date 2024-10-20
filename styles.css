@@ -58,6 +58,10 @@ form {
 	align-items: center;
 }
 
+.question {
+	margin-top: 70px;
+}
+
 .correct {
 	display: block;
 	margin: 0;
@@ -111,6 +115,10 @@ button:hover {
   width: 100vw;
   transition: margin 0.5s ease-out;
   background: linear-gradient(90deg,#0f1116,#1a1b22 100%);
+}
+
+.screen.down {
+	margin-top: +100vh;
 }
 
 .screen.up {
