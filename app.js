@@ -3,6 +3,7 @@ import { getRandomItems } from "./word-base/word-base.js"
 import { swap } from "./word-base/word-base.js"
 
 const startBtn = document.querySelector('#start')
+const seasonBtn = document.querySelector('#season-btn')
 const swapBtn = document.querySelector('#swap-list')
 const btnList = document.querySelector('#btn-list')
 const screens = document.querySelectorAll('.screen')
@@ -30,6 +31,11 @@ startBtn.addEventListener('click', (event) => {
 	screens[0].classList.add('up')
 })
 
+seasonBtn.addEventListener('click', (event) =>  {
+	event.preventDefault()
+	screens[1].classList.add('up')
+})
+
 //second screen
 swapBtn.addEventListener('click', (event) => {
 	event.preventDefault()
@@ -37,7 +43,7 @@ swapBtn.addEventListener('click', (event) => {
 	if (rusEng === 1) {
 		swap(words)
 	}
-	screens[1].classList.add('up')
+	screens[2].classList.add('up')
 })
 
 //third screen
@@ -47,7 +53,7 @@ btnList.addEventListener('click', (event) => {
 		amount = parseInt(event.target.getAttribute('data-word'))
 		shuffleWords = getRandomItems(words, amount)
 		createWord(shuffleWords)
-		screens[2].classList.add('up')
+		screens[3].classList.add('up')
 		stopWatch()
 	}
 })
@@ -60,7 +66,7 @@ wrongBtn.addEventListener('click', (event) => {
 	number = 1
 	createWord(wrongWords)
 	btn.textContent = 'Начать сначала'
-	screens[3].classList.remove('up')
+	screens[4].classList.remove('up')
 	// setTimeout(() => {screens[4].classList.add('down')}, 500);
 })
 
@@ -136,11 +142,11 @@ const secConverter = (time) => {
 const testFunction = (array) => {
 	if (counter === array.length) {
 		if (array === shuffleWords) {
-			screens[3].classList.add('up')
+			screens[4].classList.add('up')
 		countEl.innerHTML = `${count} из ${array.length}`
 		return
 		} else if (array === wrongWords) {
-			screens[3].classList.add('up')
+			screens[4].classList.add('up')
 			lastStat.innerHTML = `${count} из ${array.length}`
 		}
 	}
