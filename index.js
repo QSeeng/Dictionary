@@ -104,19 +104,37 @@ const checkInput = (array) => {
 const checkWord = (word, array) => {
 	const correct = document.querySelector('.correct')
 	const correctWord = document.querySelector('.correct-word')
-	if (word === array[counter][0]) {
-		correct.textContent = 'Правильно!'
-		correct.style.color = 'green'
-		count += 1
 
+	if (array[counter][0].includes(' (')) {
+		if (word === array[counter][0].split(' (').shift()) {
+			correct.textContent = 'Правильно!'
+			correct.style.color = 'green'
+			count += 1
+	
+		} else {
+			correct.textContent = 'Неправильно!'
+			correctWord.textContent = array[counter][0]
+			correct.style.color = 'red'
+			if (number === 0) {
+				wrongWords.push([shuffleWords[counter][0], shuffleWords[counter][1]])
+			}
+		}
 	} else {
-		correct.textContent = 'Неправильно!'
-		correctWord.textContent = array[counter][0]
-		correct.style.color = 'red'
-		if (number === 0) {
-			wrongWords.push([shuffleWords[counter][0], shuffleWords[counter][1]])
+		if (word === array[counter][0]) {
+			correct.textContent = 'Правильно!'
+			correct.style.color = 'green'
+			count += 1
+	
+		} else {
+			correct.textContent = 'Неправильно!'
+			correctWord.textContent = array[counter][0]
+			correct.style.color = 'red'
+			if (number === 0) {
+				wrongWords.push([shuffleWords[counter][0], shuffleWords[counter][1]])
+			}
 		}
 	}
+	
 }
 
 const checkArray = (array) => {
