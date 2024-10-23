@@ -1,6 +1,5 @@
-import { shuffle, words } from "./word-base/word-base.js"
-import { getRandomItems } from "./word-base/word-base.js"
-import { swap } from "./word-base/word-base.js"
+import { words } from "./word-base/word-base.js"
+import { swap, getRandomItems } from "./modes/word-practice/create-array.js"
 
 const startBtn = document.querySelector('#start')
 const seasonBtn = document.querySelector('#season-btn')
@@ -9,9 +8,9 @@ const btnList = document.querySelector('#btn-list')
 const screens = document.querySelectorAll('.screen')
 const form = document.querySelector('#form')
 const input = document.querySelector('input')
-const btn = document.querySelector('#check-btn')
+const checkBtn = document.querySelector('#check-btn')
 const timeEl = document.querySelector('#time')
-const countEl = document.querySelector('#first-stat')
+const firstStat = document.querySelector('#first-stat')
 const lastStat = document.querySelector('#last-stat')
 const wrongBtn = document.querySelector('#wrong-btn')
 const wrap = document.querySelector('#words', '.correct')
@@ -25,18 +24,20 @@ let shuffleWords = 0
 let rusEng = 0
 let wrongWords = []
 
-//first screen
+
+//Button screen[0]
 startBtn.addEventListener('click', (event) => {
 	event.preventDefault()
 	screens[0].classList.add('up')
 })
 
+//Button screen[1]
 seasonBtn.addEventListener('click', (event) =>  {
 	event.preventDefault()
 	screens[1].classList.add('up')
 })
 
-//second screen
+//Button screen[2]
 swapBtn.addEventListener('click', (event) => {
 	event.preventDefault()
 	rusEng = parseInt(event.target.getAttribute('data-lang'))
@@ -46,7 +47,7 @@ swapBtn.addEventListener('click', (event) => {
 	screens[2].classList.add('up')
 })
 
-//third screen
+//Button screen[3]
 btnList.addEventListener('click', (event) => {
 	event.preventDefault()
 	if (event.target.classList.contains('word-btn')) {
@@ -54,42 +55,29 @@ btnList.addEventListener('click', (event) => {
 		shuffleWords = getRandomItems(words, amount)
 		createWord(shuffleWords)
 		screens[3].classList.add('up')
-		stopWatch()
+		stopwatch()
 	}
 })
 
-// 
+//Button screen[5]
 wrongBtn.addEventListener('click', (event) => {
 	event.preventDefault()
 	count = 0
 	counter = 0
 	number = 1
 	createWord(wrongWords)
-	btn.textContent = 'Начать сначала'
 	screens[4].classList.remove('up')
 	// setTimeout(() => {screens[4].classList.add('down')}, 500);
 })
 
-const check = (array) => {
-	if (btn.classList.contains('check-btn')) {
-		checkWord(input.value.toLocaleLowerCase().trim(), array)
-		btn.textContent = 'Далее'
-		btn.classList.remove('check-btn')
-		counter += 1
-	} else {
-		btn.textContent = 'Проверить'
-		btn.classList.add('check-btn')
-		input.value = ''
-		createWord(array)
-	}
-}
 
 form.addEventListener('submit', (event) =>  {
 	event.preventDefault()
-	finalFunc(number)
+	returnArray(number)
 })
 
 
+// Logic for form
 const createWord = (array) => {
 	wrap.innerHTML = `
 	<i>${counter + 1}/${array.length}</i>
@@ -97,6 +85,20 @@ const createWord = (array) => {
 	<i class="correct-word"></i>
 	<h2 class="correct"></h2>`
 	wrap.className = ''
+}
+
+const checkInput = (array) => {
+	if (checkBtn.classList.contains('check-btn')) {
+		checkWord(input.value.toLocaleLowerCase().trim(), array)
+		checkBtn.textContent = 'Далее'
+		checkBtn.classList.remove('check-btn')
+		counter += 1
+	} else {
+		checkBtn.textContent = 'Проверить'
+		checkBtn.classList.add('check-btn')
+		input.value = ''
+		createWord(array)
+	}
 }
 
 const checkWord = (word, array) => {
@@ -117,7 +119,31 @@ const checkWord = (word, array) => {
 	}
 }
 
-const stopWatch = () => {
+const checkArray = (array) => {
+	if (counter === array.length) {
+		if (array === shuffleWords) {
+			screens[4].classList.add('up')
+			firstStat.innerHTML = `${count} из ${array.length}`
+		} else if (array === wrongWords) {
+			screens[4].classList.add('up')
+			lastStat.innerHTML = `${count} из ${array.length}`
+		}
+	}
+	 
+	checkInput(array)
+}
+
+const returnArray = (number) => {
+	if (number === 0) {
+		return checkArray(shuffleWords)
+	} else {
+		return checkArray(wrongWords)
+	}
+}
+
+
+//time
+const stopwatch = () => {
 	let stopInterval = setInterval(() => {
 		time += 1
 		if (counter === shuffleWords.length) {
@@ -128,7 +154,6 @@ const stopWatch = () => {
 	 }, 1000);
 }
 
-
 const secConverter = (time) => {
 
 	const minResult = Math.floor(time / 60)
@@ -136,30 +161,3 @@ const secConverter = (time) => {
 
 	timeEl.innerHTML = `${minResult} мин ${secResult} сек`
 }
-
-// Test
-
-const testFunction = (array) => {
-	if (counter === array.length) {
-		if (array === shuffleWords) {
-			screens[4].classList.add('up')
-		countEl.innerHTML = `${count} из ${array.length}`
-		return
-		} else if (array === wrongWords) {
-			screens[4].classList.add('up')
-			lastStat.innerHTML = `${count} из ${array.length}`
-		}
-	}
-	 
-	check(array)
-}
-
-const finalFunc = (number) => {
-	if (number === 0) {
-		return testFunction(shuffleWords)
-	} else {
-		return testFunction(wrongWords)
-	}
-}
-
-// setTimeout(() => {screens[4].classList.add('down')}, 500);
