@@ -150,21 +150,6 @@ button:hover {
   margin: 10px;
 }
 
-.time-btn {
-  background-color: transparent;
-  border: 2px solid #c0c0c0;
-  color: #fff;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-}
-
-.time-btn:hover {
-  border: 2px solid #16d9e3;
-  color: #16d9e3;
-}
-
 /* temporary moments */
 p {
 	font-size: 30px;

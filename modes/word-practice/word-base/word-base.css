@@ -26,6 +26,35 @@ a:hover {
   color: #6868f8;
 }
 
+button:hover {
+	background-color: #3131eb;
+}
+
+button {
+	font: 700 21px Arial, Helvetica, sans-serif;
+	display: block;
+	width: 250px;
+	margin-top: 15px;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #6868f8;
+	color: black;
+	cursor: pointer;
+	transition: background-color .3s;
+}
+
+.btn-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.btn-list li {
+  margin: 10px;
+}
 
 .table {
 	font-size: 18px;

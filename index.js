@@ -1,4 +1,4 @@
-import { words } from "./word-base/word-base.js"
+import { words } from "./modes/word-practice/word-base/word-base1.js"
 import { swap, getRandomItems } from "./modes/word-practice/create-array.js"
 
 const startBtn = document.querySelector('#start')
@@ -16,7 +16,6 @@ const lastStat = document.querySelector('#last-stat')
 const wrongBtn = document.querySelector('#wrong-btn')
 const wrap = document.querySelector('#words', '.correct')
 const repeatWords = document.querySelector('#repeat-words')
-const comebackBtn = document.querySelector('#comeback-btn')
 
 let number = 0
 let time = 0
