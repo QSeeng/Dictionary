@@ -6,6 +6,7 @@ const seasonBtn = document.querySelector('#season-btn')
 const swapBtn = document.querySelector('#swap-list')
 const btnList = document.querySelector('#btn-list')
 const screens = document.querySelectorAll('.screen')
+const hide = document.querySelector('.hide')
 const form = document.querySelector('#form')
 const input = document.querySelector('input')
 const checkBtn = document.querySelector('#check-btn')
@@ -14,6 +15,8 @@ const firstStat = document.querySelector('#first-stat')
 const lastStat = document.querySelector('#last-stat')
 const wrongBtn = document.querySelector('#wrong-btn')
 const wrap = document.querySelector('#words', '.correct')
+const repeatWords = document.querySelector('#repeat-words')
+const comebackBtn = document.querySelector('#comeback-btn')
 
 let number = 0
 let time = 0
@@ -144,7 +147,12 @@ const checkArray = (array) => {
 			firstStat.innerHTML = `${count} из ${array.length}`
 		} else if (array === wrongWords) {
 			screens[4].classList.add('up')
-			lastStat.innerHTML = `${count} из ${array.length}`
+			hide.classList.remove('hide')
+			lastStat.innerHTML = `${count}`
+			repeatWords.innerHTML = `
+			<p>Вернуться в главное меню</p>
+			<button id="comeback-btn" onclick="location.reload(); return false;">Вернуться</button>
+			`
 		}
 	}
 	 
