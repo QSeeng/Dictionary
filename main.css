@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+	border: 1px solid 000;
 }
 
 body {
@@ -31,16 +32,18 @@ a:hover {
 	font-size: 1.5rem;
 }
 
-h1 {
-  line-height: 1.4;
-  font-size: 8rem;
+.title-1 {
+	font-size: 7.5rem;
 }
 
-h2 {
+.title-2 {
+	font-size: 4.5rem;
+}
+
+.practice {
 	font-size: 3rem;
-	line-height: 2;
-}
 
+}
 
 b {
 	display: block;
@@ -66,6 +69,8 @@ form {
 .correct {
 	display: block;
 	margin: 0;
+	font-size: 3rem;
+	line-height: 2;
 }
 
 .correct-word {
@@ -118,9 +123,6 @@ button:hover {
   background: linear-gradient(90deg,#0f1116,#1a1b22 100%);
 }
 
-.screen.down {
-	margin-top: +100vh;
-}
 
 .screen.up {
   margin-top: -100vh;
