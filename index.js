@@ -144,6 +144,12 @@ const checkArray = (array) => {
 		if (array === shuffleWords) {
 			screens[4].classList.add('up')
 			firstStat.innerHTML = `${count} из ${array.length}`
+			if (wrongWords.length === 0) {
+				repeatWords.innerHTML = `
+				<p>Вернуться в главное меню</p>
+				<button id="comeback-btn" onclick="location.reload(); return false;">Вернуться</button>
+				`
+			}
 		} else if (array === wrongWords) {
 			screens[4].classList.add('up')
 			hide.classList.remove('hide')
