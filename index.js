@@ -153,7 +153,7 @@ const checkArray = (array) => {
 		} else if (array === wrongWords) {
 			screens[4].classList.add('up')
 			hide.classList.remove('hide')
-			lastStat.innerHTML = `${count}`
+			lastStat.innerHTML = `${count} из ${wrongWords.length}`
 			repeatWords.innerHTML = `
 			<p>Вернуться в главное меню</p>
 			<button id="comeback-btn" onclick="location.reload(); return false;">Вернуться</button>

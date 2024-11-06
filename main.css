@@ -9,7 +9,7 @@ body {
   color: #fff;
   font-family: "Khula", sans-serif;
   height: 100vh;
-  overflow: hidden;
+	position: fixed;
   margin: 0;
   text-align: center;
 }
@@ -154,6 +154,6 @@ button:hover {
 
 /* temporary moments */
 p {
-	font-size: 30px;
-	margin: 10px;
+	font-size: 2rem;
+	margin: 15px;
 }

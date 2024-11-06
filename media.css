@@ -10,12 +10,59 @@
 }
 
 @media (max-width: 380px) {
+	.title-1 {
+		font-size: 4.5rem;
+	}
+
+	.title-2 {
+		margin: 0;
+		font-size: 2.6rem;
+	}
+
+	.practice {
+		font-size: 2rem;
+	}
+
+	button {
+		width: 250px;
+	}
+
+	.start {
+		font-size: 2.7rem;
+	}
+
+	input {
+		width: 220px;
+		padding: 4px;
+	}
+
+	#check-btn {
+		width: 220px;
+		padding: 6px;
+	}
+
+	i {
+		font-size: 1.7rem;
+	}
+
 	b {
-		font-size: 2.5rem;
+		font-size: 1.7rem;
+	}
+
+	p {
+		font-size: 1.3rem;
+	}
+
+	.question {
+		font-size: 1.3rem;
+	}
+
+	.correct-word {
+		font-size: 1.7rem;
 	}
 
 	.correct {
-		font-size: 2rem;
-		line-height: 2;
+		font-size: 1.7rem;
+		
 	}
 }
