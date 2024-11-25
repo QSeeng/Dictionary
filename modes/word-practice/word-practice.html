@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="main.css"/>
+	<link rel="stylesheet" href="media.css"/>
+	<title>Words Practice</title>
+</head>
+<body>
+	<div class="screen">
+		<h2 class="title-2">Выберите сезон</h2>
+		<ul class="btn-list">
+			<li>
+				<button id="season-btn">Season 1</buttonш>
+			</li>
+			<li>
+				<button>Season 2</button>
+			</li>
+			<li>
+				<button>Season 3</button>
+			</li>
+			<li>
+				<button>Все слова</button>
+			</li>
+		</ul>
+		</div>
+		<!-- screen 2 -->
+		<div class="screen">
+			<h2 class="title-2">Выберите режим</h2>
+			<ul class="btn-list" id="swap-list">
+				<li>
+					<button id="swap-btn" data-lang="0">RUS</button>
+				</li>
+				<li>
+					<button id="swap-btn" data-lang="1">ENG</button>
+				</li>
+			</ul>
+		</div>
+		<!-- screen 3 -->
+		<div class="screen">
+      <h2 class="title-2">Выберите режим</h2>
+      <ul class="btn-list" id="btn-list">
+        <li>
+          <button class="word-btn" id="word-btn" data-word="10">
+            10 слов
+          </button>
+        </li>
+        <li>
+          <button class="word-btn" id="word-btn" data-word="20">
+            20 слов
+          </button>
+        </li>
+				<li>
+          <button class="word-btn" id="word-btn" data-word="30">
+            30 слов
+          </button>
+        </li>
+        <li>
+          <button class="word-btn" id="word-btn" data-word="142">
+            Все слова
+          </button>
+        </li>
+      </ul>
+    </div>
+		<!-- screen 4 -->
+    <div class="screen">
+      <h3 class="practice">Practice your english</h3>
+      <form id="form">
+				<div class="words"  id="words">
+					<!-- <i>1/3</i>
+					<b>Лампа</b> -->
+					<!-- <i class="correct-word"></i> -->
+					<!-- <h2 class="correct"></h2> -->
+				</div>
+				<input type="search" id="input" autocomplete="off">
+				<button class="check-btn" id="check-btn">Проверить</button>
+			</form>
+    </div>
+		<!-- screen 5 -->
+		<div class="screen">
+				<p>1. Затрачено времени - <span id="time"></span></p>
+				<p>2. Правильных ответов - <span id="first-stat"></span></p>
+				<p class="fixed-words hide">3. Исправлено слов - <span id="last-stat"></span></p>
+				<div class="repeat-words" id="repeat-words">
+				<p class="question">Желаете повторно пройти неправильные слова?</p>
+				<button class="wrong-btn" id="wrong-btn">Начать</button>
+				</div>
+		</div>
+
+		<script type="module" src="word-practice.js"></script>
+  </body>
+	<script type="text/javascript">
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
+	</script>
+</html>
