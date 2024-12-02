@@ -1,10 +1,12 @@
 import {irregularVerbs} from "./irregularVerbs-base.js"
+import { getRandomItems, shuffle } from "./word-practice/create-array.js"
 
 const screens = document.querySelectorAll('.screen')
 const form = document.querySelector('#form')
 const input = document.querySelector('input')
 const wrap = document.querySelector('#words', '.correct')
 const checkBtn = document.querySelector('#check-btn')
+const verbsBtn = document.querySelector('#verbs-btn')
 
 let number = 0
 let time = 0
@@ -12,6 +14,17 @@ let amount = 0
 let counter = 0
 let count = 0
 let shuffleWords = 0
+
+verbsBtn.addEventListener('click', (event) => {
+	event.preventDefault()
+	if (event.target.classList.contains('verbs')) {
+		amount = parseInt(event.target.getAttribute('data-verbs'))
+		console.log(amount)
+		shuffleWords = getRandomItems(irregularVerbs, amount)
+		createVerbs(shuffleWords)
+		screens[0].classList.add('up')
+	}
+})
 
 const createVerbs = (array) => {
 	wrap.innerHTML = `
@@ -22,11 +35,10 @@ const createVerbs = (array) => {
 	wrap.className = ''
 }
 
-createVerbs(irregularVerbs)
 
 form.addEventListener('submit', (event) =>  {
 	event.preventDefault()
-	checkArray(irregularVerbs)
+	checkArray(shuffleWords)
 })
 
 const checkInput = (array) => {
