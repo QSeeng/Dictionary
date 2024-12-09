@@ -1,30 +1,46 @@
-import {irregularVerbs} from "./irregularVerbs-base.js"
-import {getRandomItems} from "./word-practice/create-array.js"
+import {swap, getRandomItems} from "./word-practice/create-array.js"
+import { words } from "./word-practice/word-base/word-base1.js"
 
+const startBtn = document.querySelector('#start')
 const screens = document.querySelectorAll('.screen')
 const form = document.querySelector('#form')
 const input = document.querySelector('input')
 const wrap = document.querySelector('#words', '.correct')
 const checkBtn = document.querySelector('#check-btn')
-const verbsBtn = document.querySelector('#verbs-btn')
-
-let number = 0
-let time = 0
+const inputs = document.querySelectorAll('.checkbox__inp')
+const inputCheck = document.querySelector('.input__check')
 let amount = 0
 let counter = 0
 let count = 0
 let shuffleWords = 0
+let rusEng = 0
 
- verbsBtn.addEventListener('click', (event) => {
+startBtn.addEventListener('click', (event) => {
+	sortInput()
 	event.preventDefault()
-	if (event.target.classList.contains('verbs')) {
-		amount = parseInt(event.target.getAttribute('data-verbs'))
-		console.log(amount)
-		shuffleWords = getRandomItems(irregularVerbs, amount)
+		shuffleWords = getRandomItems(words, amount)
 		createVerbs(shuffleWords)
-		screens[0].classList.add('up')
-	}
+		if (rusEng.length > 0) {
+			screens[0].classList.add('up')
+		}
+
 })
+
+const sortInput = () => {
+	for (let i = 0; inputs.length > i; i += 1) {
+		if (inputs[i].checked) {
+			amount = inputs[i].getAttribute('data-atr')
+			if (amount === 'ru' || amount === 'en') {
+				rusEng = amount
+			}
+
+			if (rusEng === 'en') {
+				swap(words)
+			}
+		}
+	}
+}
+
 
  const createVerbs = (array) => {
 	wrap.innerHTML = `
@@ -35,7 +51,6 @@ let shuffleWords = 0
 	wrap.className = ''
 }
 
-
 form.addEventListener('submit', (event) =>  {
 	event.preventDefault()
 	checkArray(shuffleWords)
@@ -43,14 +58,14 @@ form.addEventListener('submit', (event) =>  {
 
 const checkInput = (array) => {
 	if (checkBtn.classList.contains('check-btn')) {
-		checkWord(input.value.toLocaleLowerCase().trim(), array)
+		checkWord(inputCheck.value.toLocaleLowerCase().trim(), array)
 		checkBtn.textContent = 'Далее'
 		checkBtn.classList.remove('check-btn')
 		counter += 1
 	} else {
 		checkBtn.textContent = 'Проверить'
 		checkBtn.classList.add('check-btn')
-		input.value = ''
+		inputCheck.value = ''
 		createVerbs(array)
 	}
 }
