@@ -16,8 +16,11 @@ let shuffleWords = 0
 let rusEng = 0
 
 startBtn.addEventListener('click', (event) => {
-	sortInput()
 	event.preventDefault()
+		sortInput()
+		if (rusEng === 'en') {
+			swap(words)
+		}
 		shuffleWords = getRandomItems(words, amount)
 		createVerbs(shuffleWords)
 		if (rusEng.length > 0) {
@@ -32,10 +35,6 @@ const sortInput = () => {
 			amount = inputs[i].getAttribute('data-atr')
 			if (amount === 'ru' || amount === 'en') {
 				rusEng = amount
-			}
-
-			if (rusEng === 'en') {
-				swap(words)
 			}
 		}
 	}
