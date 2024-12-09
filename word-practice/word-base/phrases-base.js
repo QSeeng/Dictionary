@@ -1,4 +1,4 @@
-export let collocations = [
+export let phrases = [
 	["by the way", "кстати"],
 	["before i forget", "пока я не забыл"],
 	["that being said", "тем не менее"],
@@ -7,7 +7,7 @@ export let collocations = [
 	["take it easy", "не напрягайся"],
 	["calm down", "успокойся"],
 	["no worries", "ничего страшного"],
-	["catch your later", "скоро увидимся"],
+	["catch you later", "скоро увидимся"],
 	["im on my way", "я уже в пути"],
 	["hang on a sec", "подожди секундочку"],
 	["i will be right back", "скоро вернусь"],

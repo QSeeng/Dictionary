@@ -1,5 +1,5 @@
 import {swap, getRandomItems} from "./word-practice/create-array.js"
-import { collocations } from "./word-practice/word-base/collocation-base.js"
+import { phrases } from "./word-practice/word-base/phrases-base.js"
 
 const startBtn = document.querySelector('#start')
 const screens = document.querySelectorAll('.screen')
@@ -19,10 +19,9 @@ startBtn.addEventListener('click', (event) => {
 	event.preventDefault()
 		sortInput()
 		if (rusEng === 'en') {
-			swap(collocations)
+			swap(phrases)
 		}
-		shuffleWords = getRandomItems(collocations, amount)
-		console.log(collocations)
+		shuffleWords = getRandomItems(phrases, amount)
 		createVerbs(shuffleWords)
 		if (rusEng.length > 0) {
 			screens[0].classList.add('up')
