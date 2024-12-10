@@ -35,4 +35,6 @@ export let phrases = [
 	["break a leg!", "удачи!"],
 	["im all ears", "я весь во внимании"],
 	["whats the catch?", "в чем подвох?"],
+	["either way", "в любом случае"],
+	["i was out of my head", "я сходил с ума"],
 ];

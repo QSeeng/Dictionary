@@ -1,4 +1,4 @@
-import {irregularVerbs} from "./irregularVerbs-base.js";
+import {irregularVerbs} from "./word-practice/word-base/irregularVerbs-base.js";
 import {getRandomItems, quiz} from "./word-practice/create-array.js";
 
 const screens = document.querySelectorAll('.screen');
