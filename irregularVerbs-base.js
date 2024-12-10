@@ -95,4 +95,4 @@ export let irregularVerbs = [
 	['wear wore worn', 'носить (одежду)'],
 	['win won won', 'побеждать'],
 	['write wrote written', 'писать'],
-]
+];

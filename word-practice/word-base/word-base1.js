@@ -163,4 +163,4 @@ export let words = [
 	['wreck', 'повреждение'],
 	// Y
 	['yelling', 'кричать'],
-]
+];

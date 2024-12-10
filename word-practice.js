@@ -1,29 +1,29 @@
-import { words } from "./word-practice/word-base/word-base1.js"
-import { swap, getRandomItems } from "./word-practice/create-array.js"
+import { words } from "./word-practice/word-base/word-base1.js";
+import { swap, getRandomItems } from "./word-practice/create-array.js";
 
-const seasonBtn = document.querySelector('#season-btn')
-const swapBtn = document.querySelector('#swap-list')
-const btnList = document.querySelector('#btn-list')
-const screens = document.querySelectorAll('.screen')
-const hide = document.querySelector('.hide')
-const form = document.querySelector('#form')
-const input = document.querySelector('input')
-const checkBtn = document.querySelector('#check-btn')
-const timeEl = document.querySelector('#time')
-const firstStat = document.querySelector('#first-stat')
-const lastStat = document.querySelector('#last-stat')
-const wrongBtn = document.querySelector('#wrong-btn')
-const wrap = document.querySelector('#words', '.correct')
-const repeatWords = document.querySelector('#repeat-words')
+const seasonBtn = document.querySelector('#season-btn');
+const swapBtn = document.querySelector('#swap-list');
+const btnList = document.querySelector('#btn-list');
+const screens = document.querySelectorAll('.screen');
+const hide = document.querySelector('.hide');
+const form = document.querySelector('#form');
+const input = document.querySelector('input');
+const checkBtn = document.querySelector('#check-btn');
+const timeEl = document.querySelector('#time');
+const firstStat = document.querySelector('#first-stat');
+const lastStat = document.querySelector('#last-stat');
+const wrongBtn = document.querySelector('#wrong-btn');
+const wrap = document.querySelector('#words', '.correct');
+const repeatWords = document.querySelector('#repeat-words');
 
-let number = 0
-let time = 0
-let amount = 0
-let counter = 0
-let count = 0
-let shuffleWords = 0
-let rusEng = 0
-let wrongWords = []
+let number = 0;
+let time = 0;
+let amount = 0;
+let counter = 0;
+let count = 0;
+let shuffleWords = 0;
+let rusEng = 0;
+let wrongWords = [];
 
 
 //Button screen[0]
@@ -31,47 +31,47 @@ let wrongWords = []
 
 //Button screen[1]
 seasonBtn.addEventListener('click', (event) =>  {
-	event.preventDefault()
-	screens[0].classList.add('up')
+	event.preventDefault();
+	screens[0].classList.add('up');
 })
 
 //Button screen[2]
 swapBtn.addEventListener('click', (event) => {
-	event.preventDefault()
-	rusEng = parseInt(event.target.getAttribute('data-lang'))
+	event.preventDefault();
+	rusEng = parseInt(event.target.getAttribute('data-lang'));
 	if (rusEng === 1) {
-		swap(words)
+		swap(words);
 	}
-	screens[1].classList.add('up')
+	screens[1].classList.add('up');
 })
 
 //Button screen[3]
 btnList.addEventListener('click', (event) => {
-	event.preventDefault()
+	event.preventDefault();
 	if (event.target.classList.contains('word-btn')) {
-		amount = parseInt(event.target.getAttribute('data-word'))
-		shuffleWords = getRandomItems(words, amount)
-		createWord(shuffleWords)
-		screens[2].classList.add('up')
-		stopwatch()
+		amount = parseInt(event.target.getAttribute('data-word'));
+		shuffleWords = getRandomItems(words, amount);
+		createWord(shuffleWords);
+		screens[2].classList.add('up');
+		stopwatch();
 	}
 })
 
 //Button screen[5]
 wrongBtn.addEventListener('click', (event) => {
-	event.preventDefault()
-	count = 0
-	counter = 0
-	number = 1
-	createWord(wrongWords)
-	screens[3].classList.remove('up')
+	event.preventDefault();
+	count = 0;
+	counter = 0;
+	number = 1;
+	createWord(wrongWords);
+	screens[3].classList.remove('up');
 	// setTimeout(() => {screens[4].classList.add('down')}, 500);
 })
 
 
 form.addEventListener('submit', (event) =>  {
-	event.preventDefault()
-	returnArray(number)
+	event.preventDefault();
+	returnArray(number);
 })
 
 
@@ -81,111 +81,103 @@ const createWord = (array) => {
 	<i>${counter + 1}/${array.length}</i>
 	<b>${array[counter][1]}</b>
 	<i class="correct-word"></i>
-	<h2 class="correct"></h2>`
-	wrap.className = ''
+	<h2 class="correct"></h2>`;
+	wrap.className = '';
 }
 
 const checkInput = (array) => {
 	if (checkBtn.classList.contains('check-btn')) {
-		checkWord(input.value.toLocaleLowerCase().trim(), array)
-		checkBtn.textContent = 'Далее'
-		checkBtn.classList.remove('check-btn')
-		counter += 1
+		checkWord(input.value.toLocaleLowerCase().trim(), array);
+		checkBtn.textContent = 'Далее';
+		checkBtn.classList.remove('check-btn');
+		counter += 1;
 	} else {
-		checkBtn.textContent = 'Проверить'
-		checkBtn.classList.add('check-btn')
-		input.value = ''
-		createWord(array)
+		checkBtn.textContent = 'Проверить';
+		checkBtn.classList.add('check-btn');
+		input.value = '';
+		createWord(array);
 	}
-}
+};
 
 const checkWord = (word, array) => {
-	const correct = document.querySelector('.correct')
-	const correctWord = document.querySelector('.correct-word')
+	const correct = wrap.querySelector('.correct');
+	const correctWord = wrap.querySelector('.correct-word');
+	const currentWord = array[counter][0]; // Текущее слово для проверки
 
-	if (array[counter][0].includes(' (')) {
-		if (word === array[counter][0].split(' (').shift()) {
-			correct.textContent = 'Правильно!'
-			correct.style.color = 'green'
-			count += 1
-	
-		} else {
-			correct.textContent = 'Неправильно!'
-			correctWord.textContent = array[counter][0]
-			correct.style.color = 'red'
-			if (number === 0) {
-				wrongWords.push([shuffleWords[counter][0], shuffleWords[counter][1]])
-			}
-		}
+	const isCorrect = (expectedWord) => {
+			return word === expectedWord;
+	};
+
+	// Определяем правильное слово для проверки
+	let expectedWord = currentWord.includes(' (') ? currentWord.split(' (').shift() : currentWord;
+
+	// Проверяем, правильное ли слово
+	if (isCorrect(expectedWord)) {
+			correct.textContent = 'Правильно!';
+			correct.style.color = 'green';
+			count += 1; // Увеличиваем счетчик правильных ответов
 	} else {
-		if (word === array[counter][0]) {
-			correct.textContent = 'Правильно!'
-			correct.style.color = 'green'
-			count += 1
-	
-		} else {
-			correct.textContent = 'Неправильно!'
-			correctWord.textContent = array[counter][0]
-			correct.style.color = 'red'
+			correct.textContent = 'Неправильно!';
+			correctWord.textContent = currentWord; // Показываем правильное слово
+			correct.style.color = 'red';
 			if (number === 0) {
-				wrongWords.push([shuffleWords[counter][0], shuffleWords[counter][1]])
+					wrongWords.push([shuffleWords[counter][0], shuffleWords[counter][1]]);
 			}
-		}
 	}
-	
-}
+};
 
 const checkArray = (array) => {
 	if (counter === array.length) {
 		if (array === shuffleWords) {
-			screens[3].classList.add('up')
-			firstStat.innerHTML = `${count} из ${array.length}`
+			screens[3].classList.add('up');
+			firstStat.innerHTML = `${count} из ${array.length}`;
 			if (wrongWords.length === 0) {
 				repeatWords.innerHTML = `
 				<p>Вернуться в главное меню</p>
 				<a href="/index.html" class="comeback-btn">Вернуться</a>
 				`
-			}
+			};
+
 		} else if (array === wrongWords) {
-			screens[3].classList.add('up')
-			hide.classList.remove('hide')
-			lastStat.innerHTML = `${count} из ${wrongWords.length}`
+			screens[3].classList.add('up');
+			hide.classList.remove('hide');
+			lastStat.innerHTML = `${count} из ${wrongWords.length}`;
 			repeatWords.innerHTML = `
 			<p>Вернуться в главное меню</p>
 			<a href="/index.html" class="comeback-btn">Вернуться</a>
-			`
+			`;
 		}
 	}
 	// <button id="comeback-btn" onclick="location.reload(); return false;">Вернуться</button>
 	 
-	checkInput(array)
-}
+	checkInput(array);
+};
 
 const returnArray = (number) => {
 	if (number === 0) {
-		return checkArray(shuffleWords)
+		return checkArray(shuffleWords);
 	} else {
-		return checkArray(wrongWords)
+		return checkArray(wrongWords);
 	}
-}
+};
 
 
 //time
 const stopwatch = () => {
 	let stopInterval = setInterval(() => {
-		time += 1
+		time += 1;
 		if (counter === shuffleWords.length) {
-			clearInterval(stopInterval)
-			secConverter(time)
+			clearInterval(stopInterval);
+			secConverter(time);
 			
-		}
+		};
 	 }, 1000);
-}
+};
 
 const secConverter = (time) => {
 
-	const minResult = Math.floor(time / 60)
-	const secResult = time % 60
+	const minResult = Math.floor(time / 60);
+	const secResult = time % 60;
 
-	timeEl.innerHTML = `${minResult} мин ${secResult} сек`
-}
+	timeEl.innerHTML = `${minResult} мин ${secResult} сек`;
+};

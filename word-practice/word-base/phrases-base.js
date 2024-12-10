@@ -34,5 +34,5 @@ export let phrases = [
 	["lets call it a day", "на сегодня закругляемся"],
 	["break a leg!", "удачи!"],
 	["im all ears", "я весь во внимании"],
-	["what's the catch?", "в чем подвох?"],
-]
+	["whats the catch?", "в чем подвох?"],
+];
