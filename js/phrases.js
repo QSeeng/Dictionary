@@ -1,5 +1,5 @@
-import {swap, getRandomItems, quiz} from "./word-practice/create-array.js";
-import { phrases } from "./word-practice/word-base/phrases-base.js";
+import {swap, getRandomItems, quiz} from "../js-tools/create-array.js";
+import { phrases } from "../data-base/phrases-base.js";
 
 const startBtn = document.querySelector('#start');
 const screens = document.querySelectorAll('.screen');

@@ -1,5 +1,5 @@
-import { words } from "./word-practice/word-base/word-base1.js";
-import { swap, getRandomItems } from "./word-practice/create-array.js";
+import { words } from "../data-base/word-base1.js";
+import { swap, getRandomItems } from "../js-tools/create-array.js";
 
 const seasonBtn = document.querySelector('#season-btn');
 const swapBtn = document.querySelector('#swap-list');

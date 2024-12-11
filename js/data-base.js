@@ -1,6 +1,6 @@
-import { words } from "./word-base1.js";
-import { irregularVerbs } from "./irregularVerbs-base.js";
-import { phrases } from "./phrases-base.js";
+import { words } from "../data-base/word-base1.js";
+import { irregularVerbs } from "../data-base/irregularVerbs-base.js";
+import { phrases } from "../data-base/phrases-base.js";
 
 const movieWordsBtn = document.querySelector('#movie-words');
 const irregularVerbsBtn = document.querySelector('#irregular-verbs');
