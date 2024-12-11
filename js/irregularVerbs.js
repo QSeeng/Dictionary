@@ -1,5 +1,5 @@
-import {irregularVerbs} from "./data-base/irregularVerbs-base.js";
-import {getRandomItems, quiz} from "./js-tools/create-array.js";
+import {irregularVerbs} from "../data-base/irregularVerbs-base.js";
+import {getRandomItems, quiz} from "../js-tools/create-array.js";
 
 const screens = document.querySelectorAll('.screen');
 const form = document.querySelector('#form');
