@@ -15,7 +15,7 @@ let rusEng = 0;
 
 startBtn.addEventListener('click', (event) => {
 	event.preventDefault();
-		sortInput();
+		sortInput(inputs)
 		if (rusEng === 'en') {
 			swap(phrases);
 		}
@@ -27,7 +27,7 @@ startBtn.addEventListener('click', (event) => {
 
 });
 
-const sortInput = () => {
+const sortInput = (inputs) => {
 	for (let i = 0; inputs.length > i; i += 1) {
 		if (inputs[i].checked) {
 			amount = inputs[i].getAttribute('data-atr');

@@ -31,6 +31,11 @@ a:hover {
 }
 
 
+.mode {
+	cursor: default;
+	font-size: 1.5rem;
+}
+
 
 .season-btn {
 	font: 700 21px Arial, Helvetica, sans-serif;
@@ -58,19 +63,6 @@ a:hover {
   margin: 10px;
 }
 
-.table {
-	font-size: 18px;
-	width: 100px;
-	text-align: left;
-	background-color: black;
-	margin: auto;
-}
-
-.table td {
-	padding: 5px;
-	border: 1px solid pink;
-}
-
 /* irregular verbs data base */
 .sound-btn {
 	width: 15px;
@@ -83,16 +75,16 @@ a:hover {
 	transition: background-color .3s;
 }
 
-.irregular-verbs {
+.table {
 	margin: 0 auto;
 	border-spacing: 30px;
 	text-align: left;
 }
 
-.irregular-verbs th {
+.table th {
 	font-size: 28px;
 }
 
-.irregular-verbs td {
+.table td {
 	font-size: 20px;
 }
