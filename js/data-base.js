@@ -80,7 +80,7 @@ const createIrregularVerbsTable = (wordsArray) => {
 	wordsArray.forEach(verb => {
 		// Разбиваем первую часть на отдельные формы
 		const forms = verb[0].split(' '); // ['be', 'was/were', 'been']
-		const translation = verb[1]; // 'быть, являться'
+		const translation = verb[1];
 	
 		// Создаем строку таблицы
 		const row = document.createElement('tr');

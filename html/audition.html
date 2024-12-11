@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="screen">
+		<h2 class="title-2">Настройка</h2>
+		<ul class="btn-list">
+			<li>
+				<label for="checkbox" class="checkbox">
+					<input type="radio" class="checkbox__inp" id="checkbox" name="rad" data-atr="5">
+					<span class="checkbox__inner">5 слов</span>
+				</label>
+			</li>
+			<li>
+				<label for="checkbox2" class="checkbox">
+					<input type="radio" class="checkbox__inp" id="checkbox2" name="rad" data-atr="10">
+					<span class="checkbox__inner">10 слов</span>
+				</label>
+			</li>
+			<li>
+				<label for="checkbox3" class="checkbox">
+					<input type="radio" class="checkbox__inp" id="checkbox3" name="rad" data-atr="15">
+					<span class="checkbox__inner">15 слов</span>
+				</label>
+			</li>
+		</ul>
+		<button id="start">Старт</button>
+	</div>
+
+	<div class="screen">
+		<h3 class="practice">Practice your english</h3>
+      <form id="form">
+				<div class="words"  id="words">
+					<!-- <i>1/3</i>
+					<b>Лампа</b> -->
+					<!-- <i class="correct-word"></i> -->
+					<!-- <h2 class="correct"></h2> -->
+				</div>
+				<input type="search" id="input" autocomplete="off">
+				<button class="check-btn" id="check-btn">Проверить</button>
+			</form>
+	</div>
+	<script type="module" src="../js/audition.js"></script>
+</body>
+</html>

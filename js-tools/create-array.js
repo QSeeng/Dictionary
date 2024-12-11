@@ -1,16 +1,43 @@
-export const quiz = (wordsArray, wrap, form, inputCheck, checkBtn) => {
+export const quiz = (wordsArray, wrap, form, inputCheck, checkBtn, enableSound = false) => {
 
 	let counter = 0;
 	let count = 0; 
 
+
+
 	const createWords = () => {
+		let soundBtn = '';
+		let wordSpan = '';
+		if (enableSound) {
+			soundBtn = `<button class="sound-btn" data-word="${wordsArray[counter][0]}">🔊</button>`;
+		} else {
+			wordSpan = `<span class="word-span"><b>${wordsArray[counter][1]}</b></span>`;
+		}
 			wrap.innerHTML = ` 
 					<i>${counter + 1}/${wordsArray.length}</i> 
-					<b>${wordsArray[counter][1]}</b> 
+					${soundBtn}
+					${wordSpan}
 					<i class="correct-word"></i> 
 					<h2 class="correct"></h2>`;
 			wrap.className = '';
-	};
+
+			if (enableSound) {
+				playWord(wordsArray[counter][0]); // Воспроизводим текущее слово
+				// Добавляем обработчик события для кнопки воспроизведения
+				const soundButtonElement = wrap.querySelector('.sound-btn');
+				soundButtonElement.addEventListener('click', (event) => {
+						event.preventDefault();
+						const audioWord = soundButtonElement.getAttribute('data-word');
+						playWord(audioWord); // Воспроизводим слово
+				});
+			}
+		};
+
+	const playWord = (word) => {
+		const speech = new SpeechSynthesisUtterance(word);
+		speech.lang = "en-US";
+		window.speechSynthesis.speak(speech);
+};
 
 	const checkWord = (word) => {
 			const correct = wrap.querySelector('.correct');
@@ -54,6 +81,14 @@ export const quiz = (wordsArray, wrap, form, inputCheck, checkBtn) => {
 					counter += 1; // Переходим к следующему слову
 			}
 	};
+
+	// Обработчик события нажатия клавиши Enter на inputCheck
+	inputCheck.addEventListener('keypress', (event) => {
+		if (event.key === 'Enter') {
+				event.preventDefault(); // Предотвращаем стандартное поведение
+				checkArray(); // Проверяем слово
+		}
+});
 
 	// Инициализация первого слова
 	createWords();
