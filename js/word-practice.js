@@ -79,7 +79,7 @@ form.addEventListener('submit', (event) =>  {
 const createWord = (array) => {
 	wrap.innerHTML = `
 	<i>${counter + 1}/${array.length}</i>
-	<b>${array[counter][1]}</b>
+	<span class="word-span"><b>${array[counter][1]}</b></span>
 	<i class="correct-word"></i>
 	<h2 class="correct"></h2>`;
 	wrap.className = '';
