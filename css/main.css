@@ -19,6 +19,10 @@ a {
   text-decoration: none;
 }
 
+.sign-in {
+	font-size: 1.8rem;
+}
+
 a:hover {
   color: #6868f8;
 }
