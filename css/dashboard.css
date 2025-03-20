@@ -1,0 +1,57 @@
+/* CSS (styles.css) */
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.dashboard {
+	display: flex;
+	width: 100%;
+}
+
+.sidebar {
+	width: 250px;
+	background: #2c3e50;
+	color: white;
+	padding: 20px;
+	min-height: 100vh;
+}
+
+.sidebar h2 {
+	margin-bottom: 20px;
+}
+
+.sidebar ul {
+	list-style: none;
+	padding: 0;
+}
+
+.sidebar ul li {
+	margin: 15px 0;
+}
+
+.sidebar ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+.content {
+	flex-grow: 1;
+	padding: 20px;
+}
+
+.widgets {
+	display: flex;
+	gap: 20px;
+}
+
+.widget {
+	background: #ecf0f1;
+	padding: 15px;
+	border-radius: 8px;
+	flex: 1;
+	text-align: center;
+}
